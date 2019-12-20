@@ -16,3 +16,20 @@ print(test_set)
 regressor=lm(formula= Profit~ .,                                                        #profit~R.D.Spend+Administration+Marketing.Spend+State
              data=training_set)
 print(summary(regressor))
+
+#predicting test results
+y_pred=predict(regressor,newdata=test_set)
+print("y_pred")
+print(y_pred)
+print("Difference between orignal and predicted")
+print(test_set$Profit-y_pred[1])
+library("treemap")
+tm<-treemap(dataset,
+        index=c("R.D.Spend"),
+        vSize="Profit",
+        vColor="Marketing.Spend",
+        draw=TRUE,
+        type="value"
+        )
+
+print(tm)
