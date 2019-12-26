@@ -118,7 +118,4 @@ def main():
     plt.ylabel('Salary')
     plt.show()    
 
-
-    print("\n\nSalary predicted by linear regression is ",regressor.predict(6.5))
-    print("\n Salary predicted by polynomial regression is ",lin_reg_2.predict(6.5))
 main()
