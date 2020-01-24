@@ -50,7 +50,7 @@ def find_max(arr,arr_len):
 def backwards_elimination(X,y,sl):
     #print("\n\n\n")
     X=np.append(arr=np.ones((50,1)).astype(int),values=X,axis=1)                    #adding x0=1 for coeff b0 in the multiple linear regression equation
-    #X_opt=X[:,[0,3]]                                                                #starting with all independent variables, eliminating ivs one by one 
+    #X_opt=X[:,[0,3]]                                                               #starting with all independent variables, eliminating ivs one by one 
     X_opt=X
     SL=0.05
     maxP=0
@@ -89,16 +89,16 @@ def main():
     print("\n\n")
     print(y)
 
-    regressor = LinearRegression()                                                    #constructor call
+    regressor = LinearRegression()                                                  #constructor call
     regressor.fit(X,y)
 
-    poly_reg = PolynomialFeatures(degree=4)                                           #creating object and initializing it with the degree of the polynomial
+    poly_reg = PolynomialFeatures(degree=4)                                         #creating object and initializing it with the degree of the polynomial
     X_poly = poly_reg.fit_transform(X)
 
     lin_reg_2 = LinearRegression()
-    lin_reg_2.fit(X_poly,y)                                                           #fitting the polynomial into multiple regression features
+    lin_reg_2.fit(X_poly,y)                                                         #fitting the polynomial into multiple regression features
 
-    X_grid=np.arange(min(X),max(X),0.1)                                              #to fit the curve even more properly
+    X_grid=np.arange(min(X),max(X),0.1)                                             #to fit the curve even more properly
     X_grid=X_grid.reshape((len(X_grid),1))
 
 
