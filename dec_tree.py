@@ -24,7 +24,7 @@ def preprocessing(X):
     X[:,1:3]=imputer.transform(X[:,1:3])                                            #replace the missing values with the calculated mean
     #print(X)'''
 
-    ############Processing string and categorical data########
+############Processing string and categorical data########
     labelencoder_obj=LabelEncoder()
     X[:,3]=labelencoder_obj.fit_transform(X[:,3])                                   #encoding all countries into unique nos
     transformer = ColumnTransformer([('one_hot_encoder', OneHotEncoder(), [3])],    #https://datascience.stackexchange.com/questions/41113/deprecationwarning-the-categorical-features-keyword-is-deprecated-in-version
@@ -81,7 +81,7 @@ def backwards_elimination(X,y,sl):
 ################MAIN################################
 def main():
 
-    ################Importing dataset###################
+################Importing dataset###################
     dataset=pd.read_csv("Position_Salaries.csv")
     #print(dataset)                                                                 #for debugging purpose
     X=dataset.iloc[:,1:2].values                                                    #-1 represents last col not included
